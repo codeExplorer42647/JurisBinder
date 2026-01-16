@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jurisbinder.local/schema/file_artifact.json",
+  "title": "FileArtifact",
+  "type": "object",
+  "required": ["artifact_id","document_id","artifact_type","storage_ref","filename","mime_type","sha256","created_at"],
+  "additionalProperties": false,
+  "properties": {
+    "artifact_id": { "type": "string", "minLength": 6, "maxLength": 128 },
+    "document_id": { "type": "string", "minLength": 6, "maxLength": 128 },
+    "artifact_type": {
+      "type": "string",
+      "enum": ["SOURCE","OCR_TEXT","REDACTED_FILE","ANNOTATED_FILE","TRANSLATION","THUMBNAIL","EXPORT_BUNDLE","OTHER"]
+    },
+    "storage_ref": { "type": "string", "maxLength": 800 },
+    "filename": { "type": "string", "maxLength": 260 },
+    "mime_type": { "type": "string", "maxLength": 120 },
+    "sha256": { "type": "string", "pattern": "^[A-Fa-f0-9]{64}$" },
+    "byte_size": { "type": "integer", "minimum": 0 },
+    "created_at": { "type": "string" },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "derived_from_artifact_id": { "type": "string" },
+        "derivation_method": {
+          "type": "string",
+          "enum": ["OCR","REDACTION","ANNOTATION","TRANSLATION","CONVERSION","BUNDLE_EXPORT","OTHER"]
+        },
+        "tool_version": { "type": "string", "maxLength": 80 },
+        "notes": { "type": "string", "maxLength": 2000 }
+      }
+    }
+  }
+}

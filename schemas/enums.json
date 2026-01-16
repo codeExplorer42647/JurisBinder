@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jurisbinder.local/schema/enums.json",
+  "title": "JurisBinderEnums",
+  "DOC_TYPE_CODE": {
+    "type": "string",
+    "enum": [
+      "LETTER_IN", "LETTER_OUT", "EMAIL", "EMAIL_ATTACHMENT", "FAX",
+      "COURT_ORDER", "COURT_JUDGMENT", "DECISION", "RULING", "SUMMONS",
+      "FILING", "COMPLAINT", "STATEMENT", "BRIEF", "MOTION", "APPEAL",
+      "PROTOCOL_MINUTES", "HEARING_NOTE", "EVIDENCE_ITEM", "PHOTO", "VIDEO", "AUDIO",
+      "MED_REPORT", "MED_CERTIFICATE", "MED_LAB_RESULT", "MED_IMAGING_REPORT", "MED_CORRESPONDENCE",
+      "EXPERT_REPORT", "EXPERT_ANNEX", "INVOICE", "RECEIPT", "CONTRACT", "POLICY", "FORM", "ID_DOCUMENT",
+      "CHRONOLOGY", "SYNTHESIS", "INTERNAL_NOTE", "OTHER"
+    ]
+  },
+  "DOC_STATUS": {
+    "type": "string",
+    "enum": [
+      "INBOX", "REGISTERED", "CLASSIFIED", "QUALIFIED",
+      "EXHIBIT_READY", "FILED", "FROZEN", "ARCHIVED",
+      "DUPLICATE", "DISPUTED", "REDACTED", "ERROR"
+    ]
+  },
+  "SOURCE_CHANNEL": {
+    "type": "string",
+    "enum": [
+      "SCAN", "POST", "EMAIL", "PORTAL", "HAND_DELIVERED", "MESSAGING_APP", "PHONE_RECORDING", "PHOTO_CAPTURE", "SYSTEM_EXPORT", "OTHER"
+    ]
+  },
+  "CONFIDENTIALITY_LEVEL": {
+    "type": "string",
+    "enum": ["PUBLIC", "NORMAL", "SENSITIVE", "HEALTH", "CRIMINAL", "LEGAL_PRIVILEGED"]
+  }
+}

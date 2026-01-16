@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jurisbinder.local/schema/physical_original.json",
+  "title": "PhysicalOriginal",
+  "type": "object",
+  "required": ["physical_original_id","case_id","label","location","registered_at","custody_chain"],
+  "additionalProperties": false,
+  "properties": {
+    "physical_original_id": { "type": "string", "minLength": 6, "maxLength": 128 },
+    "case_id": { "type": "string", "minLength": 6, "maxLength": 64 },
+    "label": { "type": "string", "maxLength": 160 },
+    "location": {
+      "type": "object",
+      "required": ["binder","section"],
+      "additionalProperties": false,
+      "properties": {
+        "binder": { "type": "string", "maxLength": 80 },
+        "section": { "type": "string", "maxLength": 80 },
+        "pocket": { "type": "string", "maxLength": 80 },
+        "page_range": { "type": "string", "maxLength": 40 }
+      }
+    },
+    "registered_at": { "type": "string" },
+    "custody_chain": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["timestamp","actor","action"],
+        "additionalProperties": false,
+        "properties": {
+          "timestamp": { "type": "string" },
+          "actor": { "type": "string", "maxLength": 120 },
+          "action": { "type": "string", "enum": ["CREATED","TRANSFERRED","VIEWED","RETURNED","LOST","DESTROYED","OTHER"] },
+          "notes": { "type": "string", "maxLength": 2000 }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jurisbinder.local/schema/link.json",
+  "title": "Link",
+  "type": "object",
+  "required": ["link_id","case_id","link_type","from_object","to_object","justification","created_at"],
+  "additionalProperties": false,
+  "properties": {
+    "link_id": { "type": "string", "minLength": 6, "maxLength": 128 },
+    "case_id": { "type": "string", "minLength": 6, "maxLength": 64 },
+    "link_type": {
+      "type": "string",
+      "enum": [
+        "CROSS_BRANCH_REFERENCE","DERIVED_FROM","ATTACHMENT_OF","RELATES_TO_SAME_EVENT",
+        "SUPERSEDES","TRANSLATION_OF","REDACTION_OF","OCR_OF"
+      ]
+    },
+    "from_object": {
+      "type": "object",
+      "required": ["object_type","object_id"],
+      "additionalProperties": false,
+      "properties": {
+        "object_type": { "type": "string", "enum": ["DOCUMENT","ARTIFACT","PHYSICAL_ORIGINAL","CASE","OTHER"] },
+        "object_id": { "type": "string", "minLength": 6, "maxLength": 128 },
+        "branch_code": { "type": "string" }
+      }
+    },
+    "to_object": {
+      "type": "object",
+      "required": ["object_type","object_id"],
+      "additionalProperties": false,
+      "properties": {
+        "object_type": { "type": "string", "enum": ["DOCUMENT","ARTIFACT","PHYSICAL_ORIGINAL","CASE","OTHER"] },
+        "object_id": { "type": "string", "minLength": 6, "maxLength": 128 },
+        "branch_code": { "type": "string" }
+      }
+    },
+    "justification": { "type": "string", "minLength": 3, "maxLength": 1200 },
+    "created_at": { "type": "string" },
+    "created_by": { "type": "string", "maxLength": 120 }
+  }
+}

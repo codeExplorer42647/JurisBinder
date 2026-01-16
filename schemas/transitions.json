@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jurisbinder.local/schema/transitions.json",
+  "title": "AllowedTransitions",
+  "type": "object",
+  "properties": {
+    "ALLOWED_TRANSITIONS": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": { "$ref": "https://jurisbinder.local/schema/enums.json#/DOC_STATUS" }
+      }
+    }
+  }
+}

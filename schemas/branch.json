@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jurisbinder.local/schema/branch.json",
+  "title": "Branch",
+  "type": "object",
+  "required": ["branch_id","branch_code","branch_label","isolation_level"],
+  "additionalProperties": false,
+  "properties": {
+    "branch_id": { "type": "string", "minLength": 6, "maxLength": 64 },
+    "branch_code": {
+      "type": "string",
+      "enum": ["ADMIN","FACT","PEN","CIV","ADM","MED","EXP","COR","EVD","ANA","STR","PRC","ARC"]
+    },
+    "branch_label": { "type": "string", "maxLength": 120 },
+    "isolation_level": { "type": "string", "enum": ["STRICT","STRICT_WITH_REFERENCES"] },
+    "default_storage_ref": { "type": "string", "maxLength": 500 }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jurisbinder.local/schema/common.json",
+  "title": "CommonPrimitives",
+  "type": "object",
+  "properties": {
+    "ID": { "type": "string", "minLength": 6, "maxLength": 128 },
+    "ISO_DATE": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "ISO_DATETIME": { "type": "string" }
+  }
+}
