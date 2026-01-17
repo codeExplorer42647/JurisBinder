@@ -1,5 +1,5 @@
 {
-  "name": "JurisBinder Core",
+  "name": "JurisBinder",
   "description": "A professional legal dossier clerk and compliance-grade records manager for strict classification, naming, and traceability of legal documents.",
   "requestFramePermissions": [
     "camera"
